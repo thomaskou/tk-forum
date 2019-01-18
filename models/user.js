@@ -9,7 +9,6 @@ User.getInfo = function(name, res) {
         //console.log(result[0]);
         res.send(result[0]);
     });
-    res.end();
 };
 
 User.newUser = function(name, email, pass, res) {
@@ -19,15 +18,14 @@ User.newUser = function(name, email, pass, res) {
         db.query("SELECT SHA2('"+pass+"', 512) AS sha", function(err, result) {
             if (err) throw err;
             var pass_sha512 = result[0].sha;
-            var sql = "INSERT INTO users VALUES ('"+id+"','"+name+"','"+email+"','"+pass_sha512+"')";
+            var sql = "INSERT INTO users VALUES ("+id+",'"+name+"','"+email+"','"+pass_sha512+"')";
             db.query(sql, function(err, result) {
                 if (err) throw err;
-                res.send("Successfully added 1 user to database.")
+                res.send("Successfully added one user to database.")
                 //console.log("Successfully added 1 user to database.");
             });
         })
     });
-    res.end();
 };
 
 User.updateUser = function(name, email, pass, res) {
@@ -60,7 +58,6 @@ User.updateUser = function(name, email, pass, res) {
             })
         }
     }
-    res.end();
 };
 
 User.deleteUser = function(name, res) {
@@ -70,8 +67,7 @@ User.deleteUser = function(name, res) {
         res.send("Successfully deleted one user.");
         //console.log("Successfully deleted one user.");
     });
-    res.end();
-}
+};
 
 User.getAll = function(res) {
     var sql = "SELECT * FROM users";
@@ -79,7 +75,6 @@ User.getAll = function(res) {
         if (err) throw err;
         res.send(result);
     });
-    res.end();
-}
+};
 
 module.exports = User;

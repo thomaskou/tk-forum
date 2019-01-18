@@ -18,7 +18,7 @@ exports.db_drop = function(req, res) {
 
 exports.db_setup = function(req, res) {
     var sql1 = "CREATE TABLE users (id INT, name VARCHAR(32), email VARCHAR(64), pass_sha512 VARCHAR(255))";
-    var sql2 = "CREATE TABLE posts (id INT, title VARCHAR(64), body VARCHAR(8192))";
+    var sql2 = "CREATE TABLE posts (id INT, title VARCHAR(64), body VARCHAR(8192), userid INT)";
     var sql3 = "CREATE TABLE tags (id INT, name VARCHAR(32))";
     var sql4 = "CREATE TABLE user_posts (userid INT)";
     var sql5 = "CREATE TABLE post_tags (postid INT)";

@@ -1,21 +1,30 @@
 const Post = require('../models/post');
 
+//Gets a JSON with a list of information regarding all posts.
 exports.post_all = function(req, res) {
-    res.send("NOT IMPLEMENTED: GET /api/posts");
+    Post.getAll(res);
 };
 
+//Adds a new post to the database with automatic ID generation.
+//Usage: body:title, body:body, body:userid
 exports.post_new = function(req, res) {
-    res.send("NOT IMPLEMENTED: POST /api/posts/:id");
+    Post.newPost(req.body.title, req.body.body, req.body.userid, res);
 };
 
+//Gets a JSON with a post's information (finds using ID).
+//Usage: params:id
 exports.post_get = function(req, res) {
-    res.send("NOT IMPLEMENTED: GET /api/posts/:id");
+    Post.getInfo(req.params.id, res);
 };
 
-exports.post_update = function(req, res) {
-    res.send("NOT IMPLEMENTED: PUT /api/posts/:id");
+//Edits a post's information (finds using ID).
+//Usage: params:id, body:body
+exports.post_edit = function(req, res) {
+    Post.editPost(req.params.id, req.body.body, res);
 };
 
+//Deletes a post from the database (finds using ID).
+//Usage: params:id
 exports.post_delete = function(req, res) {
-    res.send("NOT IMPLEMENTED: DELETE /api/posts/:id");
+    Post.deletePost(req.params.id, res);
 };

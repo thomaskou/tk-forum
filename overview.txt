@@ -37,7 +37,7 @@ users -------------------------------------
 id      name        email       pass_sha512
 
 posts -------------------------------------
-id      title       body
+id      title       body        userid
 
 tags --------------------------------------
 id      name
