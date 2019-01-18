@@ -2,11 +2,17 @@ ROUTES
 
 /api
 /api/test               get
-/api/users              get
-/api/user/:id           get, post, put, delete
-/api/posts              get
-/api/post/:id           get, post, put, delete
-/api/database           put, delete
+
+/api/users              get, post
+/api/users/:id          get, put, delete
+/api/posts              get, post
+/api/posts/:id          get, put, delete
+/api/tags               get, post
+/api/tags/:id           get, put, delete
+
+/api/database/new       put
+/api/database           delete
+/api/database/setup     put
 
 
 DIRECTORY
@@ -22,3 +28,22 @@ URI
 /user/:id
 /new
 /login
+
+
+
+
+
+users -------------------------------------
+id      name        email       pass_sha512
+
+posts -------------------------------------
+id      title       body
+
+tags --------------------------------------
+id      name
+
+user_posts --------------------------------
+userid
+
+post_tags ---------------------------------
+postid

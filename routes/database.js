@@ -2,21 +2,21 @@
 
 const db = require('../database');
 
-exports.newdb = function(req, res) {
+exports.db_new = function(req, res) {
     db.query("CREATE DATABASE forumdb", function(err, result) {
         if (err) throw err;
         res.json({ message: 'Created database forumdb.' });
     });
 };
 
-exports.dropdb = function(req, res) {
+exports.db_drop = function(req, res) {
     db.query("DROP DATABASE forumdb", function(err, result) {
         if (err) throw err;
         res.json({ message: 'Dropped database forumdb.' });
     });
 };
 
-exports.setup = function(req, res) {
+exports.db_setup = function(req, res) {
     var sql1 = "CREATE TABLE users (id INT, name VARCHAR(32), email VARCHAR(64), pass_sha512 VARCHAR(255))";
     var sql2 = "CREATE TABLE posts (id INT, title VARCHAR(64), body VARCHAR(8192))";
     var sql3 = "CREATE TABLE tags (id INT, name VARCHAR(32))";
