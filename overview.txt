@@ -1,0 +1,24 @@
+ROUTES
+
+/api
+/api/test               get
+/api/users              get
+/api/user/:id           get, post, put, delete
+/api/posts              get
+/api/post/:id           get, post, put, delete
+/api/database           put, delete
+
+
+DIRECTORY
+
+/models/user
+/models/post
+
+
+URI
+
+/
+/post/:id
+/user/:id
+/new
+/login
