@@ -24,7 +24,7 @@ exports.user_update = function(req, res) {
 };
 
 //Deletes a user from the database (finds using username).
-//Usage: params:name
+//Usage: params:name, body:pass
 exports.user_delete = function(req, res) {
-    User.deleteUser(req.params.name, res);
+    User.deleteUser(req.params.name, req.body.pass, res);
 };

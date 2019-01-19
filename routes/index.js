@@ -11,7 +11,7 @@ const database = require('./database');
 //Middleware
 
 router.use(function(req, res, next) {
-    console.log("Request made with type " + req.method + " at time " + Date.now());
+    console.log("API request made with type " + req.method + " at time " + Date.now());
     next();
 });
 
@@ -32,7 +32,7 @@ router.get('/posts', posts.post_all);
 router.post('/posts', posts.post_new);
 
 router.get('/posts/:id', posts.post_get);
-router.put('/posts/:id', posts.post_update);
+router.put('/posts/:id', posts.post_edit);
 router.delete('/posts/:id', posts.post_delete);
 
 

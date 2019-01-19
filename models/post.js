@@ -10,7 +10,7 @@ Post.getInfo = function(id, res) {
     });
 };
 
-Post.newPost = function(title, body, userid, res) {
+Post.newPost = function(title, body, userid, pass, res) {
     db.query("SELECT COUNT(*) AS count FROM posts", function(err, result) {
         if (err) throw err;
         var id = result[0].count;
@@ -22,14 +22,14 @@ Post.newPost = function(title, body, userid, res) {
     });
 };
 
-Post.editPost = function(id, body, res) {
+Post.editPost = function(id, body, userid, pass, res) {
     var sql = "UPDATE posts SET body = '"+body+"' WHERE id = "+id;
     db.query(sql, function(err, result) {
         res.send("Successfully edited one post.");
     });
 };
 
-Post.deletePost = function(id, res) {
+Post.deletePost = function(id, userid, pass, res) {
     var sql = "DELETE FROM posts WHERE id = "+name;
     db.query(sql, function(err, result) {
         if (err) throw err;

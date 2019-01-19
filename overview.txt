@@ -26,8 +26,9 @@ URI
 /
 /post/:id
 /user/:id
-/new
+/register
 /login
+/new
 
 
 

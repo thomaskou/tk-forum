@@ -60,7 +60,7 @@ User.updateUser = function(name, email, pass, res) {
     }
 };
 
-User.deleteUser = function(name, res) {
+User.deleteUser = function(name, pass, res) {
     var sql = "DELETE FROM users WHERE name = '"+name+"'";
     db.query(sql, function(err, result) {
         if (err) throw err;
